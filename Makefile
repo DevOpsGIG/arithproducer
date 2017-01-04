@@ -27,7 +27,7 @@ test: build/test/image ## run unit tests
 	@printf "Removing "${REPO}"/"${IMAGE_TEST_NAME}" image\n\n"
 	@docker rmi "${REPO}"/"${IMAGE_TEST_NAME}"
 
-run: build/prod/image ## start the task generation and send each task as POST request to the API
+run: clean build/prod/image ## start the task generation and send each task as POST request to the API
 	@docker run -d --name "${CONTAINER_PROD_NAME}" "${REPO}"/"${IMAGE_PROD_NAME}"
 
 clean: ## stop and remove running production container
